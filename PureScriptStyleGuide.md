@@ -449,3 +449,13 @@ One should strive to keep the case-of matcher bodies really simple. Keep in mind
 There is, however, an exception to this rule:
 
 If all the matchers in the case-of statement has more than 2 lines, go with rule 2 instead and separate them with blank spaces. However, try to refactor so that you won't hit this exception as much as possible. Only use it for some inevitable places.
+
+## 8. Scoping Rules
+
+Just as with any other language, it is always a good idea to restrict the scope of functions and values. This prevents anyone else from using the same function at other places and hence the code will be clean. The following are the rules that needs to be followed in determining the scope.
+
+  1. If a function is used only by a single function, keep it in a where clause.
+  2. If a function is used by multiple functions, but only in a single module, keep it in the module scope, but do not export it.
+  3. If a function is used across modules, then keep it public by exporting it from the module.
+
+This can be (read as should be) applied to all the values as well and not only to functions.
